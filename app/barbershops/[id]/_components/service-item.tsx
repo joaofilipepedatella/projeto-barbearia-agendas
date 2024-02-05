@@ -5,17 +5,16 @@ import { Card, CardContent } from "@/app/_components/ui/card";
 import { Service } from "@prisma/client";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 
 interface ServiceItemProps {
   service: Service;
-  isAutenticated: boolean;
+  isAuthenticated: boolean;
 }
 
-const ServiceItem = ({ service, isAutenticated }: ServiceItemProps) => {
+const ServiceItem = ({ service, isAuthenticated }: ServiceItemProps) => {
 
   const handleBookingClick = () => {
-    if(!isAutenticated) {
+    if(!isAuthenticated) {
       return signIn('google')
     }
 
